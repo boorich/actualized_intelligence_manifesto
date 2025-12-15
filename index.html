@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Actualized Intelligence Manifesto - Sage boorich</title>
+    <title>The Actualized Intelligence Manifesto - Scholar boorich</title>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="The Actualized Intelligence Manifesto">
-    <meta property="og:description" content="A slightly absurd, fully serious declaration of a new computational era. By Sage boorich.">
+    <meta property="og:description" content="A slightly absurd, fully serious declaration of a new computational era. By Scholar boorich.">
     <meta property="og:url" content="">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Actualized Intelligence Manifesto">
-    <meta name="twitter:description" content="A slightly absurd, fully serious declaration of a new computational era. By Sage boorich.">
+    <meta name="twitter:description" content="A slightly absurd, fully serious declaration of a new computational era. By Scholar boorich.">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,22 +22,22 @@
     <div class="container">
         <header>
             <h1>The Actualized Intelligence Manifesto</h1>
-            <p class="author">By Sage boorich</p>
+            <p class="author">By Scholar boorich</p>
             <p class="subtitle">(A slightly absurd, fully serious declaration of a new computational era)</p>
         </header>
 
         <div class="share-section">
             <p class="share-label">Share this manifesto:</p>
             <div class="share-buttons">
-                <a href="#" class="share-btn" data-platform="twitter" title="Share on Twitter/X">Twitter</a>
-                <a href="#" class="share-btn" data-platform="linkedin" title="Share on LinkedIn">LinkedIn</a>
-                <a href="#" class="share-btn" data-platform="facebook" title="Share on Facebook">Facebook</a>
-                <a href="#" class="share-btn" data-platform="copy" title="Copy link">Copy Link</a>
+                <a href="" class="share-btn" data-platform="twitter" title="Share on Twitter/X" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="" class="share-btn" data-platform="linkedin" title="Share on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="" class="share-btn" data-platform="facebook" title="Share on Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="" class="share-btn" data-platform="copy" title="Copy link">Copy Link</a>
             </div>
         </div>
 
         <section class="prologue">
-            <h2>🜂 Prologue: A Sage's Complaint</h2>
+            <h2>🜂 Prologue: A Scholar's Complaint</h2>
             <p>For decades, we worshipped models—vast digital oracles that could predict text, generate images, or hallucinate entire universes.</p>
             <p>We called it Artificial Intelligence, and we marveled.</p>
             <p>But something was wrong.</p>
@@ -46,7 +46,7 @@
             <p>It could describe a calendar event in perfect prose…<br>
             yet could not put it on our calendar.</p>
             <p>We built geniuses who live only in their own heads—mentats without hands, oracles without agency.</p>
-            <p>And I, Sage boorich, say:</p>
+            <p>And I, Scholar boorich, say:</p>
             <p class="emphasis">Enough. A mind that does not act is not intelligence. It is entertainment.<br>
             Real intelligence is actualized.</p>
             <p>Thus begins the age of Actualized Intelligence (AI).</p>
@@ -173,7 +173,7 @@
             <p>Let the world remember the line that started this—a tribute to Boole, Church, and Turing:</p>
             <blockquote>
                 Intelligence is only real when it is actualized.<br>
-                <cite>—Sage boorich</cite>
+                <cite>Scholar boorich</cite>
             </blockquote>
             <p>This axiom is the philosophical seed of the movement.</p>
             <p>It reframes everything:</p>
@@ -220,14 +220,14 @@
             agents are the flame,<br>
             and Actualized Intelligence is the forge.</p>
             <p class="closing">Welcome to the new era.</p>
-            <p class="signature">Sage boorich</p>
+            <p class="signature">Scholar boorich</p>
         </section>
     </div>
     
     <script>
         // Get current page URL
         const currentUrl = window.location.href;
-        const title = encodeURIComponent("The Actualized Intelligence Manifesto by Sage boorich");
+        const title = encodeURIComponent("The Actualized Intelligence Manifesto by Scholar boorich");
         const text = encodeURIComponent("A slightly absurd, fully serious declaration of a new computational era.");
         
         // Share URLs
@@ -245,18 +245,30 @@
             if (platform === 'copy') {
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    navigator.clipboard.writeText(currentUrl).then(() => {
-                        const originalText = btn.textContent;
-                        btn.textContent = 'Copied!';
-                        setTimeout(() => {
-                            btn.textContent = originalText;
-                        }, 2000);
-                    });
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(currentUrl).then(() => {
+                            const originalText = btn.textContent;
+                            btn.textContent = 'Copied!';
+                            setTimeout(() => {
+                                btn.textContent = originalText;
+                            }, 2000);
+                        }).catch(() => {
+                            // Fallback: select text
+                            const textArea = document.createElement('textarea');
+                            textArea.value = currentUrl;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(textArea);
+                            btn.textContent = 'Copied!';
+                            setTimeout(() => {
+                                btn.textContent = 'Copy Link';
+                            }, 2000);
+                        });
+                    }
                 });
             } else {
                 btn.href = shareUrls[platform];
-                btn.target = '_blank';
-                btn.rel = 'noopener noreferrer';
             }
         });
     </script>
